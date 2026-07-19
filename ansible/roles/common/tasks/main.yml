@@ -1,0 +1,47 @@
+---
+- name: Update apt package cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Upgrade installed packages
+  ansible.builtin.apt:
+    upgrade: dist
+
+- name: Install common packages
+  ansible.builtin.apt:
+    name: "{{ common_packages }}"
+    state: present
+
+- name: Configure system timezone
+  community.general.timezone:
+    name: "{{ timezone }}"
+
+- name: Create application directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  loop:
+    - "{{ game_root }}"
+    - "{{ game_log_dir }}"
+    - "{{ game_data_dir }}"
+
+- name: Ensure log directory permissions
+  ansible.builtin.file:
+    path: "{{ game_log_dir }}"
+    mode: "0755"
+
+- name: Verify operating system
+  ansible.builtin.assert:
+    that:
+      - ansible_distribution == "Ubuntu"
+      - ansible_distribution_major_version == "24"
+    fail_msg: "Only Ubuntu 24.04 is supported."
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600

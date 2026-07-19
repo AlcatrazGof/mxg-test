@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Your Name
+  description: Common operating system baseline
+  company: N/A
+
+  min_ansible_version: "2.16"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - noble
+
+dependencies: []
