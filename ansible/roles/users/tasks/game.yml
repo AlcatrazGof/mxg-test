@@ -1,0 +1,14 @@
+---
+- name: Ensure game group exists
+  ansible.builtin.group:
+    name: "{{ game_group }}"
+    state: present
+
+- name: Ensure game user exists
+  ansible.builtin.user:
+    name: "{{ game_user }}"
+    group: "{{ game_group }}"
+    shell: "{{ game_shell }}"
+    create_home: false
+    system: true
+    state: present

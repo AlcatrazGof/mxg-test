@@ -1,0 +1,5 @@
+---
+deploy_shell: /bin/bash
+game_shell: /usr/sbin/nologin
+
+deploy_home: "/home/{{ deploy_user }}"
