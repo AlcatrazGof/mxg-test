@@ -1,0 +1,8 @@
+---
+- name: Create game directory
+  ansible.builtin.file:
+    path: "{{ game_root }}"
+    state: directory
+    owner: "{{ game_user }}"
+    group: "{{ game_group }}"
+    mode: "0755"
