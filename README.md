@@ -214,3 +214,63 @@ After deployment, verify:
 # Notes
 
 This repository focuses on infrastructure provisioning and operating system configuration. Game binaries and application deployment are intentionally outside the scope of this repository.
+
+
+---
+
+# Future Improvements (From this assignment)
+
+The current implementation focuses on providing a clean, repeatable, and secure baseline for provisioning Ubuntu-based MMORPG game servers. The following enhancements could be implemented as the infrastructure evolves.
+
+## Infrastructure Automation
+
+* Integrate with cloud provisioning tools (Terraform or OpenTofu) to automate VM and networking creation before Ansible configuration.
+* Support multiple Linux distributions through OS-specific variables and tasks.
+* Separate environment-specific configuration into dedicated inventory repositories.
+
+## Security
+
+* Store sensitive information using Ansible Vault or an external secrets manager (e.g., HashiCorp Vault, AWS Secrets Manager).
+* Implement automated operating system patch management and scheduled maintenance windows.
+* Add file integrity monitoring and security auditing.
+* Apply CIS Benchmark hardening profiles where appropriate.
+
+## CI/CD
+
+* Add GitHub Actions or GitLab CI pipelines to automatically execute:
+
+  * YAML validation
+  * Ansible syntax checks
+  * ansible-lint
+  * Molecule tests
+* Require pull request approval before merging infrastructure changes.
+
+## Testing
+
+* Add Molecule test scenarios for every Ansible role.
+* Include automated verification of idempotency.
+* Perform integration testing using disposable virtual machines or containers.
+
+## Monitoring & Observability
+
+* Extend monitoring beyond Node Exporter by deploying:
+
+  * Prometheus
+  * Grafana
+  * Centralized log collection
+* Add health checks for game server processes and critical services.
+* Configure alerting for infrastructure failures and resource utilization.
+
+## Game Server Deployment
+
+* Automate deployment of game server binaries from an artifact repository.
+* Manage application configuration using templates.
+* Deploy and manage the game server as a systemd service.
+* Support rolling updates and versioned releases with rollback capability.
+
+## Operational Improvements
+
+* Support zero-downtime deployments where applicable.
+* Implement automatic backup and restore procedures.
+* Add maintenance mode workflows for game server updates.
+* Generate deployment reports after each execution.
