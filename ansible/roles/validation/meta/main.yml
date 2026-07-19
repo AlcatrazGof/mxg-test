@@ -1,0 +1,7 @@
+---
+galaxy_info:
+  author: Your Name
+  description: Validation tasks
+  min_ansible_version: "2.16"
+
+dependencies: []

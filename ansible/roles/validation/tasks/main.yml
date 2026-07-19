@@ -1,0 +1,18 @@
+---
+- name: Verify game directory exists
+  ansible.builtin.stat:
+    path: "{{ game_root }}"
+  register: game_dir
+
+- name: Assert game directory exists
+  ansible.builtin.assert:
+    that:
+      - game_dir.stat.exists
+
+- name: Verify Node Exporter is running
+  ansible.builtin.service_facts:
+
+- name: Assert Node Exporter service exists
+  ansible.builtin.assert:
+    that:
+      - "'prometheus-node-exporter.service' in ansible_facts.services"
