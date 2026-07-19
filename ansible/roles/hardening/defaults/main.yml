@@ -1,0 +1,4 @@
+---
+game_nofile_limit: 65535
+
+game_nproc_limit: 65535

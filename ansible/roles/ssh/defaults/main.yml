@@ -1,0 +1,14 @@
+---
+ssh_port: 22
+
+ssh_allow_tcp_forwarding: "no"
+
+ssh_x11_forwarding: "no"
+
+ssh_client_alive_interval: 300
+
+ssh_client_alive_count_max: 2
+
+ssh_login_grace_time: 30
+
+ssh_max_auth_tries: 3

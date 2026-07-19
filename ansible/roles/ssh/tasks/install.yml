@@ -1,0 +1,5 @@
+---
+- name: Ensure OpenSSH Server is installed
+  ansible.builtin.apt:
+    name: openssh-server
+    state: present

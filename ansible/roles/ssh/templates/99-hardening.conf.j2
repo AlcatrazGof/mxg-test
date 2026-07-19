@@ -1,0 +1,27 @@
+PermitRootLogin no
+
+PasswordAuthentication no
+
+KbdInteractiveAuthentication no
+
+ChallengeResponseAuthentication no
+
+PubkeyAuthentication yes
+
+PermitEmptyPasswords no
+
+X11Forwarding {{ ssh_x11_forwarding }}
+
+AllowTcpForwarding {{ ssh_allow_tcp_forwarding }}
+
+ClientAliveInterval {{ ssh_client_alive_interval }}
+
+ClientAliveCountMax {{ ssh_client_alive_count_max }}
+
+LoginGraceTime {{ ssh_login_grace_time }}
+
+MaxAuthTries {{ ssh_max_auth_tries }}
+
+PermitUserEnvironment no
+
+AllowUsers {{ deploy_user }}

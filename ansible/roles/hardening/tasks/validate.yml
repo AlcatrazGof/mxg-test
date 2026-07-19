@@ -1,0 +1,10 @@
+---
+- name: Verify sysctl configuration
+  ansible.builtin.command: sysctl -p /etc/sysctl.d/99-game-hardening.conf
+  changed_when: false
+
+- name: Assert supported operating system
+  ansible.builtin.assert:
+    that:
+      - ansible_distribution == "Ubuntu"
+      - ansible_distribution_major_version == "24"

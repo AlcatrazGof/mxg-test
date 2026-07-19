@@ -1,0 +1,9 @@
+---
+- name: Verify ssh service is enabled
+  ansible.builtin.service_facts:
+
+- name: Assert SSH service exists
+  ansible.builtin.assert:
+    that:
+      - "'ssh.service' in ansible_facts.services"
+    fail_msg: "SSH service not found."
