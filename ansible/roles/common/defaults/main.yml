@@ -13,4 +13,3 @@ common_packages:
   - ca-certificates
   - gnupg
   - lsof
-  - tcpdump

@@ -1,0 +1,7 @@
+---
+- name: Assert supported operating system
+  ansible.builtin.assert:
+    that:
+      - ansible_distribution == "Ubuntu"
+      - ansible_distribution_major_version == "24"
+    fail_msg: "This playbook supports Ubuntu 24.04 only."
