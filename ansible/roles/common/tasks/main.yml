@@ -1,4 +1,8 @@
 ---
+- import_tasks: packages.yml
+- import_tasks: timezone.yml
+- import_tasks: filesystem.yml
+- import_tasks: validate.yml
 - name: Update apt package cache
   ansible.builtin.apt:
     update_cache: true
