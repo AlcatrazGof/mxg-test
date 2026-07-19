@@ -1,0 +1,12 @@
+---
+- name: Bootstrap new game server
+  hosts: game_servers
+  become: true
+
+  roles:
+    # Implemented in later milestones
+    - common
+    - users
+    - ssh
+    - firewall
+    - hardening

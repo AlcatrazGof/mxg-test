@@ -1,0 +1,14 @@
+---
+- name: Configure production game servers
+  hosts: game_servers
+  become: true
+
+  roles:
+    - common
+    - users
+    - ssh
+    - firewall
+    - hardening
+    - node_exporter
+    - game_server
+    - validation
