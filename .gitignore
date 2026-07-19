@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Ansible
+*.retry
+
+# Editors
+.vscode/
+.idea/
+
+# Secrets
+*.pem
+*.key
+*.crt
+*.p12
+
+# Logs
+*.log
+
+# Terraform (future-proof)
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Misc
+.env
