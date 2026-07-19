@@ -1,8 +1,8 @@
 ---
 - name: Deploy kernel hardening configuration
   ansible.builtin.template:
-    src: 99-game-hardening.conf.j2
-    dest: /etc/sysctl.d/99-game-hardening.conf
+    src: 99-security-baseline.conf
+    dest: /etc/sysctl.d/99-security-baseline.conf
     owner: root
     group: root
     mode: "0644"

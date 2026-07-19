@@ -1,0 +1,37 @@
+---
+- name: Install UFW
+  ansible.builtin.apt:
+    name: ufw
+    state: present
+
+- name: Default deny incoming
+  community.general.ufw:
+    direction: incoming
+    policy: deny
+
+- name: Default allow outgoing
+  community.general.ufw:
+    direction: outgoing
+    policy: allow
+
+- name: Allow SSH
+  community.general.ufw:
+    rule: allow
+    port: "{{ ssh_port }}"
+    proto: tcp
+
+- name: Allow Game Port
+  community.general.ufw:
+    rule: allow
+    port: "{{ game_port }}"
+    proto: tcp
+
+- name: Allow Node Exporter
+  community.general.ufw:
+    rule: allow
+    port: "{{ node_exporter_port }}"
+    proto: tcp
+
+- name: Enable UFW
+  community.general.ufw:
+    state: enabled

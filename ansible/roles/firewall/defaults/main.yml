@@ -1,0 +1,4 @@
+---
+ssh_port: 22
+node_exporter_port: 9100
+game_port: 7777
